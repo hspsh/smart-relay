@@ -66,8 +66,8 @@
            (lambda* (#:key outputs #:allow-other-keys)
 	     (let ((out  (assoc-ref outputs "out")))
                (substitute* "smart-relay.sh"
-		 (("smart-relay.rtk")
-                  (string-append out "/share/smart-relay.rtk"))))))
+		 (("smart-relay.rkt")
+                  (string-append out "/share/smart-relay.rkt"))))))
 	 (add-before 'install 'move-files
 	   (lambda* (#:key inputs outputs #:allow-other-keys)
 	     (let* ((out  (assoc-ref outputs "out"))
@@ -78,10 +78,10 @@
 	       (chmod "smart-relay.sh" #o555)
 	       (copy-recursively "smart-relay.sh"
 				 (string-append bin "smart-relay"))
-	       (copy-recursively "smart-relay.rtk"
-				 (string-append share "smart-relay.rtk"))
+	       (copy-recursively "smart-relay.rkt"
+				 (string-append share "smart-relay.rkt"))
 	       (delete-file-recursively "smart-relay.sh")
-	       (delete-file-recursively "smart-relay.rtk")))))))
+	       (delete-file-recursively "smart-relay.rkt")))))))
     (synopsis "Lisp program to control usb relay over mqtt")
     (description "Lisp program to control usb relay over mqtt")
     (home-page "https://git.jdlugosz.com/hsp/smart-relay")
