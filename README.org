@@ -1,0 +1,17 @@
+#+TITLE: ReadMe
+#+AUTHOR: bobma
+
+* TODO What's that?????
+
+* How to run it?
+#+begin_src sh
+  git clone https://git.jdlugosz.com/hsp/smart-relay
+  cd smart-relay
+  if [[ $(which guix) ]]; then
+      ./build.sh
+  else
+      ./build-on-non-guix.sh
+  fi;
+  docker load < docker-mqtt-smart-relay.tar.gz
+  ./create-smart-relay-containter.sh [hsp mqtt password]
+#+end_src
